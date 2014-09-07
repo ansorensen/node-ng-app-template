@@ -7,21 +7,22 @@
     "grunt": "~0.4.5"
   },
   "devDependencies": {
+    "bcrypt": "^0.8.0",
+    "body-parser": "^1.6.5",
+    "express": "^4.8.5",
+    "express-jwt": "^0.3.1",
     "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-connect": "^0.8.0",
     "grunt-contrib-copy": "^0.5.0",
     "grunt-contrib-watch": "^0.6.1",
-    "grunt-contrib-connect": "^0.8.0",
     "grunt-open": "^0.2.3",
-    "express": "^4.8.5",
-    "mongoose": "^3.8.15",
-    "node-restful": "^0.1.17",
-    "body-parser": "^1.6.5",
     "jsonwebtoken": "^1.1.0",
-    "express-jwt": "^0.3.1"
+    "mongoose": "^3.8.15",
+    "node-restful": "^0.1.17"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Alec Sorensen",
   "license": "ISC"
 }

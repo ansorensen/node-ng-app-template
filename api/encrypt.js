@@ -1,9 +1,34 @@
-var hash_password;
+// imports
+var bcrypt = require('bcrypt'),
 
-hash_password = function(req, res, net) {
+// functions
+hashPassword;
 
+hashPassword = function(req, res, next) {
+    
+    console.log('hasPassword called');
+    
+    bcrypt.genSalt(10, function(err, salt) {
+        if(err) {
+            console.log(err);
+            return next(err);
+        }
+        
+        bcrypt.hash(req.body.password, salt, function(err, hash) {
+            if(err) {
+                console.log(err);
+                return next(err);
+            }
+            
+            req.body.password = hash;
+            console.log(req.body.password);
+            next();
+            
+        });
+    });
 };
 
+// exports
 module.exports = {
-    hash_password: hash_password
+    hashPassword: hashPassword
 };

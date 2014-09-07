@@ -1,3 +1,4 @@
+// node modules
 var express = require('express'),
 	bodyParser = require('body-parser'),
 	restful = require('node-restful'),
@@ -5,6 +6,11 @@ var express = require('express'),
     expressJwt = require('express-jwt'),
     jwt = require('jsonwebtoken'),
     secret = 'secretOfNymh',
+    
+    // app modules
+    encrypt = require('./encrypt.js');
+    
+    // initialize
     app = express();
 
 app.use(bodyParser.urlencoded({extended: false}));
@@ -17,7 +23,7 @@ app.use(function (req, res, next) {
 });
 
 // protect api calls
-app.use('/api', expressJwt({secret: secret}));
+// app.use('/api', expressJwt({secret: secret}));
 app.use(function(req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
@@ -33,8 +39,6 @@ app.post('/authenticate', function(req, res) {
         return;
     }
 
-
-
     var profile = {
         first_name: 'Joe',
         last_name: 'Test',
@@ -48,7 +52,7 @@ app.post('/authenticate', function(req, res) {
     res.json({token: token, user: profile});
 });
 
-mongoose.connect("mongodb://localhost/lifeWin");
+mongoose.connect("mongodb://localhost/appName");
 
 var Resource = app.user = restful.model('user', mongoose.Schema({
         email:  { type: 'string', required: true },
@@ -56,9 +60,7 @@ var Resource = app.user = restful.model('user', mongoose.Schema({
         userName: { type: 'string', required: true }
     }))
     .methods(['get', 'post', 'put', 'delete'])
-    .before('post', function(req, res, next) {
-
-    }),
+    .before('post', encrypt.hashPassword),
 
     Resource = app.object = restful.model('object', mongoose.Schema({
 		name:  { type: 'string', required: true },
