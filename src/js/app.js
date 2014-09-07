@@ -1,6 +1,6 @@
-var lifeWin = angular.module('lifeWin', ['ui.router']);
+var app = angular.module('app', ['ui.router']);
 
-lifeWin.config(function($stateProvider, $urlRouterProvider) {
+app.config(function ($stateProvider, $urlRouterProvider) {
 
 	$urlRouterProvider.otherwise('/');
 
@@ -13,15 +13,15 @@ lifeWin.config(function($stateProvider, $urlRouterProvider) {
 			}
 		})
 		.state('loggedout.home', {
-			url:'/',
+			url: '/',
 			views: {
-				'@': {templateUrl: 'views/home-loggedout.html', controller: 'home-loggedout'}
+				'@': {templateUrl: 'views/home-loggedout.html'}
 			}
 		})
 		.state('loggedin', {
 			abstract: true,
 			views: {
-				'header': { templateUrl: 'views/partials/header-loggedin.html', controller: 'header-loggedin'},
+				'header': { templateUrl: 'views/partials/header-loggedin.html'},
 				'footer': { templateUrl: 'views/partials/footer.html' }
 			}
 		})
@@ -36,10 +36,10 @@ lifeWin.config(function($stateProvider, $urlRouterProvider) {
 			views: {
 				'@': {templateUrl: 'views/objects-new.html'}
 			}
-		})
+		});
 });
 
-lifeWin.constant('AUTH_EVENTS', {
+app.constant('AUTH_EVENTS', {
     loginSuccess: 'auth-login-success',
     loginFailed: 'auth-login-failed',
     logoutSuccess: 'auth-logout-success',
@@ -48,7 +48,7 @@ lifeWin.constant('AUTH_EVENTS', {
     notAuthorized: 'auth-not-authorized'
 });
 
-lifeWin.constant('USER_ROLES', {
+app.constant('USER_ROLES', {
     all: '*',
     admin: 'admin',
     user: 'user',

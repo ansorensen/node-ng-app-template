@@ -1,4 +1,4 @@
-lifeWin.factory('AuthService', ['$rootScope', '$http', 'Session', 'AUTH_EVENTS', function($rootScope, $http, Session, AUTH_EVENTS) {
+app.factory('AuthService', ['$rootScope', '$http', 'Session', 'AUTH_EVENTS', function($rootScope, $http, Session, AUTH_EVENTS) {
     var authService = {};
 
     authService.login = function (credentials) {

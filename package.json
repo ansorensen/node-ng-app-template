@@ -11,6 +11,7 @@
     "body-parser": "^1.6.5",
     "express": "^4.8.5",
     "express-jwt": "^0.3.1",
+    "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-concat": "^0.5.0",
     "grunt-contrib-connect": "^0.8.0",
     "grunt-contrib-copy": "^0.5.0",

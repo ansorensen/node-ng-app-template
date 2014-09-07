@@ -29,5 +29,8 @@
     "angular-ui-router": "~0.2.11",
     "angular": "~1.2.23",
     "bootstrap": "~3.2.0"
+  },
+  "devDependencies": {
+    "jquery": "~2.1.1"
   }
 }

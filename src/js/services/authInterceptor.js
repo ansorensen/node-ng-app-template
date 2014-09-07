@@ -1,4 +1,4 @@
-lifeWin.factory('authInterceptor', ['$rootScope', '$q', 'Session', function ($rootScope, $q, Session) {
+app.factory('authInterceptor', ['$rootScope', '$q', 'Session', function ($rootScope, $q, Session) {
     return {
         request: function (config) {
             config.headers = config.headers || {};
@@ -16,6 +16,6 @@ lifeWin.factory('authInterceptor', ['$rootScope', '$q', 'Session', function ($ro
     };
 }]);
 
-lifeWin.config(function ($httpProvider) {
+app.config(function ($httpProvider) {
     $httpProvider.interceptors.push('authInterceptor');
 });

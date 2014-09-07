@@ -1,4 +1,4 @@
-lifeWin.service('Session', function () {
+app.service('Session', function () {
     this.create = function (token, userId, userRole) {
         this.token = token;
         this.userId = userId;

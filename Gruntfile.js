@@ -3,25 +3,28 @@ module.exports = function(grunt) {
 	// Project configuration.
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
+        clean: {
+            dist: ['dist']
+        },
 		concat: {
 			js: {
 				options: {
 					separator: ';'
 				},
-				src: ['vendor/jquery/jquery-2.1.1.min.js',
-					'vendor/angular/angular.min.js',
-					'vendor/angular/angular-ui-router.min.js',
-					'vendor/bootstrap/js/bootstrap.min.js',
+				src: ['vendor/jquery/dist/jquery.js',
+					'vendor/angular/angular.js',
+					'vendor/angular-ui-router/release/angular-ui-router.js',
+					'vendor/bootstrap/dist/js/bootstrap.min.js',
 					'src/js/**/*'
 				],
-				dest: 'dist/js/lifeWin.js'
+				dest: 'dist/js/app.js'
 			},
 			css: {
-				src: ['vendor/bootstrap/css/bootstrap.min.css',
-					'vendor/bootstrap/css/bootstrap-theme.min.css',
+				src: ['vendor/bootstrap/dist/css/bootstrap.css',
+					'vendor/bootstrap/dist/css/bootstrap-theme.css',
 					'src/css/app.css'
 				],
-				dest: 'dist/css/lifeWin.css'
+				dest: 'dist/css/app.css'
 			}
 		},
 		copy: {
@@ -76,7 +79,8 @@ module.exports = function(grunt) {
 		}
 	});
 
-	// Load the plugin that provides the "uglify" task.
+	// load grunt plugins
+    grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-connect');
@@ -84,6 +88,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-watch');
 
 	// Default task(s).
-	grunt.registerTask('default', ['concat', 'copy', 'connect', 'open', 'watch']);
+	grunt.registerTask('default', ['clean', 'concat', 'copy', 'connect', 'open', 'watch']);
 
 };

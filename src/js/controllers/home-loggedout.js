@@ -1,4 +1,4 @@
-lifeWin.controller('home-loggedout', [
+app.controller('home-loggedout', [
     '$scope', '$state', 'AuthService', function($scope, $state, AuthService) {
 
      $scope.credentials = {
