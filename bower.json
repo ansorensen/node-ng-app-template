@@ -1,0 +1,33 @@
+{
+  "name": "node-ng-app-template",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ansorensen/node-ng-app-template",
+  "authors": [
+    "ansorensen <ansorensen@gmail.com>"
+  ],
+  "description": "basic server-client app with auth and api",
+  "main": "index.html",
+  "keywords": [
+    "node",
+    "mongodb",
+    "angular",
+    "template",
+    "auth",
+    "api"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "~0.2.11",
+    "angular": "~1.2.23",
+    "bootstrap": "~3.2.0"
+  }
+}
