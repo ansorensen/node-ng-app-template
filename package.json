@@ -1,7 +1,7 @@
 {
-  "name": "LifeWin",
+  "name": "Node-Ng-App-Template",
   "version": "0.0.0",
-  "description": "RPGified, open-ended goal tracker",
+  "description": "Basic server and client app template with auth and sample API",
   "main": "index.js",
   "dependencies": {
     "grunt": "~0.4.5"
