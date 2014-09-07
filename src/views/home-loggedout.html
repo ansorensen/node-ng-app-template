@@ -1,0 +1,65 @@
+<div class="row">
+	<div class="col-md-8">
+		<h2>Welcome to App</h2>
+		<p>Welcome text.</p>
+	</div>
+	<div class="col-md-4">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<h3>Log In</h3>
+                <div ng-if="error" class="alert alert-danger">{{error.data}}</div>
+				<form name="loginForm" ng-submit="login(credentials)" novalidate role="form">
+					<div class="form-group">
+						<label for="login-email">Email:</label>
+						<input type="text"
+						       id="login-email"
+						       ng-model="credentials.email"
+						       class="form-control">
+					</div>
+					<div class="form-group">
+						<label for="login-password">Password:</label>
+						<input type="password"
+						       id="login-password"
+						       ng-model="credentials.password"
+						       class="form-control">
+					</div>
+					<div class="form-group">
+						<button class="btn btn-default" type="submit">Login</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<h3>Or Sign Up</h3>
+				<form name="loginForm" ng-submit="signup(credentials)" novalidate role="form">
+					<div class="form-group">
+						<label for="signup-email">Email:</label>
+						<input type="text"
+						       id="signup-email"
+						       ng-model="signup.username"
+						       class="form-control">
+					</div>
+					<div class="form-group">
+						<label for="signup-password">Password:</label>
+						<input type="password"
+						       id="signup-password"
+						       ng-model="signup.password"
+						       class="form-control">
+					</div>
+					<div class="form-group">
+						<label for="signup-password-verify">Verify Password:</label>
+						<input type="password"
+						       id="signup-password-verify"
+						       ng-model="signup.passwordVerify"
+						       class="form-control">
+					</div>
+					<div class="form-group">
+						<button class="btn btn-default" type="submit">Sign Up</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+	</div>
+</div>
