@@ -15,13 +15,13 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 		.state('loggedout.home', {
 			url: '/',
 			views: {
-				'@': {templateUrl: 'views/home-loggedout.html'}
+				'@': {templateUrl: 'views/home-loggedout.html', controller: 'home-loggedout'}
 			}
 		})
 		.state('loggedin', {
 			abstract: true,
 			views: {
-				'header': { templateUrl: 'views/partials/header-loggedin.html'},
+				'header': { templateUrl: 'views/partials/header-loggedin.html', controller: 'header-loggedin'},
 				'footer': { templateUrl: 'views/partials/footer.html' }
 			}
 		})
