@@ -1,15 +1,15 @@
 var bodyParser = require('body-parser'),
-    expressJwt = require('express-jwt'),
     jwt = require('jsonwebtoken'),
     secret = 'secretOfNymh';
 
 module.exports = function (app) {
     
-    app.post('/authenticate', function(req, res) {
+    app.post('/authenticate', function (req, res) {
         
-        var profile;
+        var profile,
+            token;
 
-        if(!(req.body.email === 'joe@email.test' && req.body.password === 'pass')) {
+        if (!(req.body.email === 'joe@email.test' && req.body.password === 'pass')) {
             res.status(401).send('Wrong email or password');
             return;
         }
@@ -22,7 +22,7 @@ module.exports = function (app) {
             id: 123
         };
 
-        var token = jwt.sign(profile, secret, {expiresInMinutes: 60*5});
+        token = jwt.sign(profile, secret, {expiresInMinutes: 60 * 5});
 
         res.json({token: token, user: profile});
     });
