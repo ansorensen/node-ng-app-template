@@ -17,7 +17,7 @@ var express = require('express'),
             console.log(req.body);
             next();
         })
-        .use(function(req, res, next) {
+        .use(function (req, res, next) {
             res.header('Access-Control-Allow-Origin', '*');
             res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
             res.header('Access-Control-Allow-Headers', 'Content-Type');
@@ -27,13 +27,12 @@ var express = require('express'),
     // routes
     authRoute = require('./routes/auth.js')(app),
     userRoutes = require('./routes/user.js')(app),
-    objectRoutes = require('./routes/object.js')(app);
+    objectRoutes = require('./routes/userItem.js')(app);
 
 // protect api calls
 // app.use('/api', expressJwt({secret: secret}));
 
 // Allow CORS for dev
-app
 mongoose.connect(database.url);
 
 app.listen(3000);

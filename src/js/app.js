@@ -25,16 +25,16 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 				'footer': { templateUrl: 'views/partials/footer.html' }
 			}
 		})
-		.state('loggedin.objects', {
-			url: '/objects',
+		.state('loggedin.userItems', {
+			url: '/userItems',
 			views: {
-				'@': {templateUrl: 'views/objects.html'}
+				'@': {templateUrl: 'views/userItems.html'}
 			}
 		})
-		.state('loggedin.newObject', {
-			url: '/objects/new',
+		.state('loggedin.newUserItem', {
+			url: '/userItems/new',
 			views: {
-				'@': {templateUrl: 'views/objects-new.html'}
+				'@': {templateUrl: 'views/userItem-new.html'}
 			}
 		});
 });

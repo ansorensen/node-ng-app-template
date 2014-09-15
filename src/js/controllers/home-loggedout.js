@@ -7,7 +7,7 @@ app.controller('home-loggedout', [
      };
      $scope.login = function (credentials) {
          AuthService.login(credentials).then(function (user) {
-                 $state.go('loggedin.objects');
+                 $state.go('loggedin.userItems');
              }, function(error) {
                  $scope.error = error;
             }
