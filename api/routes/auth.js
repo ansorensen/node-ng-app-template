@@ -11,9 +11,6 @@ module.exports = function (app) {
         var profile,
             token;
         
-        // TOOD: hash the receive password
-        
-        
         // fetch user with login email
         User.findOne({email: req.body.email}, function (err, user) {
             if (err) {
@@ -37,6 +34,7 @@ module.exports = function (app) {
                     };
                     
                     token = jwt.sign(profile, secret, {expiresInMinutes: 60 * 5});
+                    req.session.userId = user._id;
                     res.json({token: token, user: profile});
                 }
                 else {

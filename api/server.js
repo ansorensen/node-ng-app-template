@@ -1,6 +1,8 @@
 // node modules
 var express = require('express'),
 	bodyParser = require('body-parser'),
+    cookieParser = require('cookie-parser'),
+    session = require('express-session'),
     expressJwt = require('express-jwt'),
     restful = require('node-restful'),
 	mongoose = restful.mongoose,
@@ -13,6 +15,9 @@ var express = require('express'),
         .use(bodyParser.urlencoded({extended: false}))
         .use(bodyParser.json())
         .use(express.query())
+        .use(cookieParser())
+        .use(session({secret:'The Secret of Nymh'}))
+        // Todo: make these dev environment only feauters
         .use(function (req, res, next) {
             console.log(req.body);
             next();
@@ -30,7 +35,8 @@ var express = require('express'),
     objectRoutes = require('./routes/userItem.js')(app);
 
 // protect api calls
-// app.use('/api', expressJwt({secret: secret}));
+// TODO: figure out why this doesn't work
+app.use('/api', expressJwt({secret: 'The Secret of My Success'}));
 
 // Allow CORS for dev
 mongoose.connect(database.url);

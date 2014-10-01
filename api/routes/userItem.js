@@ -1,14 +1,13 @@
     // app dependencies
 var encrypt = require('../utils/encrypt.js'),
-    UserItem = require('../models/userItem.js');
+    UserItem = require('../models/userItem.js'),
+    UserItemController = require('../controllers/userItem.js');
 
 
 // methods
 UserItem.methods(['get', 'post', 'put', 'delete'])
-    // very that modifications to the object
-    .before('post', encrypt.hashPassword)
-    .before('put', encrypt.hashPassword)
-    .before('delete', encrypt.hashPassword);
+    .before('post', UserItemController.setOwner)
+    .before('put', UserItemController.verifyOwner);
 
 // url
 module.exports = function (app) {

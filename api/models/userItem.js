@@ -3,7 +3,7 @@ var restful = require('node-restful'),
     UserItemSchema;
 
 UserItemSchema = restful.model('UserItem', mongoose.Schema({
-    _owner : { type: Number, ref: 'User' },
+    _owner : { type: 'string', ref: 'User' },
     name:  { type: 'string', required: true },
     desc: {type: 'string', required: false}
 }));

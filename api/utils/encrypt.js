@@ -6,7 +6,7 @@ hashPassword;
 
 hashPassword = function(req, res, next) {
     
-    console.log('hasPassword called');
+    console.log('hashPassword called');
     
     bcrypt.genSalt(10, function(err, salt) {
         if(err) {
